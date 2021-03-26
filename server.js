@@ -23,6 +23,8 @@ const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
 const jobsRouter = require('./routes/jobs')
 const trackerRouter = require('./routes/tracker')
+const messagesRouter = require('./routes/messages')
+const contactRouter = require('./routes/contact')
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -56,6 +58,8 @@ app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use('/jobs', jobsRouter)
 app.use('/tracker', trackerRouter)
+app.use('/messages', messagesRouter)
+app.use('/contact', contactRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

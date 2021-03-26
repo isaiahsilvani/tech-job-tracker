@@ -6,5 +6,5 @@ module.exports = {
 
 function index(req, res) {
     console.log('index router hit')
-    res.render('jobs/index', { title: 'Job Tracker', user: req.user, results: null})
+    res.render('tracker/index', { title: 'Job Tracker', user: req.user, results: null})
 }
