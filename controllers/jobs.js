@@ -1,15 +1,38 @@
 const Job = require('../models/job')
+const axios = require('axios')
+const { htmlToText } = require('html-to-text')
 
 function index(req, res) {
     console.log('index router hit')
-    res.render('jobs/index', { title: 'Find Jobs', user: req.user, results: [""]})
+    let results = []
+    res.render('jobs/index', { title: 'Find Jobs', user: req.user, results})
 }
 
+//get the results, spit them back on the index page
+
 function search(req, res) {
-    //turn req.body into a legitimate search query for github jobs api
-    console.log(getQueryString(req))
-    res.redirect('/jobs/')
-}
+    const apiQuery = String(getQueryString(req))
+    const results = []
+    console.log(apiQuery)
+    //console.log(apiQuery)
+    axios.get(apiQuery)
+    .then((response) => {
+        for (let todo of response.data) {
+            console.log(todo)
+            todo.description = htmlToText(todo.description, {wordwrap: 130})
+            console.log(todo)
+            results.push(todo)
+        }
+        res.render('jobs/index', {
+            title: 'Search Jobs',
+            user: req.user,
+            results
+        })
+    })
+    console.log(results)
+    }
+// 
+
  
 
 

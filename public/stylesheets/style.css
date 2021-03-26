@@ -82,8 +82,11 @@ label {
   border: 2px solid grey
 }
 
-
-
+#inline-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 /* nav bar code below */
 .navbar {
@@ -192,16 +195,4 @@ a {
 
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
-}
-
-#footer {
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
-  background-color: #303;
-  color: #fff;
 }

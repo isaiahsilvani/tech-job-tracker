@@ -18,11 +18,29 @@
       <button class='btn btn-primary btn-sm' id='job-search-btn' type='submit'>SUBMIT</button>
       </div>
     </form>
-
-    <%= results %> 
 </div>
 
+<%= results.length %> 
 
+<% if (results.length > 0) { %> 
+  <% //create a bootstrap card for every job %> 
+  <% results.forEach(r => { %> 
+  <div class="card" style="width: 100%">
+    <div class="card-body">
+      <span id='inline-card-header'>
+        <h5 class="card-title"><%= r.title %></h5>
+        <h6 class="card-subtitle text-muted" style='text-align: right'><%= r.created_at %></h6>
+      </span>
+      <h6 class="card-subtitle mb-2 text-muted"><%= r.company %></h6>
+      <h6 class="card-subtitle mb-2 text-muted"><%= r.location %></h6>
+      <p class="card-text"><%= r.description.slice(0, 230) + '...'%> </p>
+      <a href="#"><button type="button" class="btn btn-warning">Show Detail</button></a>
+    </div>
+  </div>
+  <% }) %> 
+<% } %> 
 
+  </div>
+</div>
 
 </main><%- include('../partials/footer') %>
