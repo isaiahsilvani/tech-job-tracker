@@ -7,6 +7,42 @@ body {
   padding: 0;
 }
 
+main {
+  width: 90vw;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1.2rem; 
+  border-radius: 10px;
+  color: white;
+  background-color: #333;
+  padding: 0.5rem 1.8rem; 
+  box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65) 
+
+}
+
+/* button code */
+button:hover{
+  filter: brightness(150%);
+}
+
+button:active {
+  transform: translate(0, 0.3rem)
+}
+
+.fa-twitter {
+  font-size: 2rem;
+}
+
+.twitter-button:hover {
+  color: #1DA1F2;
+}
+
+
+/* nav bar code below */
 .navbar {
   display: flex;
   position: relative;
@@ -64,6 +100,9 @@ body {
   border-radius: 10px;
 }
 
+/* footer code */
+
+
 @media (max-width: 800px) {
   .navbar {
       flex-direction: column;
@@ -97,67 +136,23 @@ body {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Background Styles Only */
-
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
-* {
-  font-family: Raleway;
+#page-container {
+  position: relative;
+  min-height: 100vh;
 }
 
-html {
-  background-color: #DFDFDF;
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
 }
 
-.side-links {
-position: absolute;
-bottom: 15px;
-right: 15px;
-}
-
-.side-link {
-display: flex;
-align-items: center;
-justify-content: center;
-text-decoration: none;
-margin-bottom: 10px;
-color: white;
-width: 180px;
-padding: 10px 0;
-border-radius: 10px;
-}
-
-.side-link-youtube {
-background-color: red;
-}
-
-.side-link-twitter {
-background-color: #1DA1F2;
-}
-
-.side-link-github {
-background-color: #6e5494;
-}
-
-.side-link-text {
-margin-left: 10px;
-font-size: 18px;
-}
-
-.side-link-icon {
-color: white;
-font-size: 30px;
+#footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+  background-color: #303;
+  color: #fff;
 }

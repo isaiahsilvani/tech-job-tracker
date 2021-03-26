@@ -4,34 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src='javascripts/app.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title><%= title %></title>
   </head>
   <body>
-    <nav>
-      <body>
-        <nav class="navbar">
-          <div class="brand-title">Tech Hunter</div>
-          <a href="#" class="toggle-button">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </a>
-          <div class="navbar-links">
-            <ul>
-              <li><a href="#">Jobs</a></li>
-              <li><a href="#">Tracker</a></li>
-              <li><a href="#">Community</a></li>
-              <li><a href="#">Resources</a></li>
-              <% if (user) { %>
-                <li>
-                  <a href="/auth/logout">Log Out</a>
-                </li>
-                <% } else { %>
-                <li>
-                  <a href="/auth/google">Login with Google</a>
-                </li>
-                <% } %>
-            </ul>
-          </div>
-        </nav>
+    <div id="page-container">
+      <div id="content-wrap">
+        <nav>
+          <body>
+            <nav class="navbar">
+              <div class="brand-title">Tech Hunters</div>
+              <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </a>
+              <div class="navbar-links">
+                <ul>
+                  <li><a href="#">Jobs</a></li>
+                  <li><a href="#">Tracker</a></li>
+                  <li><a href="#">Community</a></li>
+                  <li><a href="#">Resources</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <% if (user) { %>
+                    <li>
+                      <a href="/auth/logout">Log Out</a>
+                    </li>
+                    <% } else { %>
+                    <li>
+                      <a href="/auth/google">Login with Google</a>
+                    </li>
+                    <% } %>
+                </ul>
+              </div>
+            </nav>
