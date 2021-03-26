@@ -37,7 +37,10 @@ function getQueryString(req) {
         endPoint.push(`location=${location}`)
     }
     endPoint = endPoint.join('&')
-    apiUrl = apiUrl + endPoint
-
-    return apiUrl
+    //if endPoint is empty and therefore false, return search node query of API. Else, return api + endpoint
+    if (!endPoint) {
+        return apiUrl + 'search=node'
+    } else {
+        return apiUrl + endPoint
+    }
 }
