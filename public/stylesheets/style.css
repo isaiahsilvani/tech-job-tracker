@@ -42,6 +42,47 @@ button:active {
 }
 
 
+
+h1 {
+  text-align: center;
+  margin: 0
+}
+
+label {
+  padding: 0.3em
+}
+
+#jobs-text-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+#jobs-checkbox-inputs {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  padding: 0.1em;
+  margin-top: 0.2em;
+}
+
+#btn-search-row {
+  display: flex;
+  justify-content: center;
+}
+
+#job-search-btn {
+  font-size: 0.9em;
+  width: 30%;
+  text-align: center;
+  margin-top: 0.1em;
+  padding: 0.5em;
+  background-color: darkblue;
+  border: 2px solid grey
+}
+
+
+
+
 /* nav bar code below */
 .navbar {
   display: flex;

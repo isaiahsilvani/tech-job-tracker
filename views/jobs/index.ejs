@@ -1,8 +1,28 @@
 <%- include('../partials/header') %>
 
 <main>
-  <h1>hello index jobs page, <%= user ? user.name : "friend" %></h1>
-</main>
+  <h1><%= user ? user.name : "Friend" %>, it's time to find your dream job</h1>
+  <div id='searchbar'>
+    <form action="/jobs/search" method='POST'>
+      <div id='jobs-text-inputs'>
+        <label for="keyword">keyword</label>
+        <input type="text" name='keyword'>
+        <label for="location">location</label>
+        <input type="text" name='location'>
+      </div id='jobs-text-inputs'>
+      <div id='jobs-checkbox-inputs'>
+        <label for="full-time">Full Time</label>
+        <input type="checkbox" name='full-time'>
+        <label for="part-time">part Time</label>
+        <input type="checkbox" name='part-time'>
+      </div>
+      <div id='btn-search-row'>
+      <button class='btn btn-primary btn-sm' id='job-search-btn' type='submit'>SUBMIT</button>
+      </div>
+    </form>
+</div>
 
 
-<%- include('../partials/footer') %>
+
+
+</main><%- include('../partials/footer') %>

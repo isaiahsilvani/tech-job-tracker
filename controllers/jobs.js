@@ -5,6 +5,12 @@ function index(req, res) {
     res.render('jobs/index', { title: 'Find Jobs', user: req.user, results: null})
 }
 
+function search(req, res) {
+    console.log('search controller function hit')
+    res.redirect('jobs/index')
+}
+
 module.exports = {
-    index
+    index,
+    search
 }
