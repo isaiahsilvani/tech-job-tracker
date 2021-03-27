@@ -24,9 +24,9 @@ function search(req, res) {
     //console.log(apiQuery)
     axios.get(apiQuery)
     .then((response) => {
-        for (let todo of response.data) {
-            todo.description = htmlToText(todo.description, {wordwrap: 130})
-            results.push(todo)
+        for (let result of response.data) {
+            result.description = htmlToText(result.description, {wordwrap: 130})
+            results.push(result)
         }
         res.render('jobs/index', {
             title: 'Search Jobs',
@@ -54,6 +54,7 @@ function show(req, res) {
     console.log(apiUrl)
     axios
     .get(apiUrl).then((response) => {
+        response.data.description = htmlToText(response.data.description, {wordwrap: 130})
         res.render('jobs/show', {
             title: 'Game Details',
             user: req.user,

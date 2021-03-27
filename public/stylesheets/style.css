@@ -15,6 +15,8 @@ main {
   padding: 20px 15px;
 }
 
+/* THE CODE BELOW WAS PRIMARILY USED FOR STYLE JOBS PAGE */
+/* THE CODE BELOW WAS PRIMARILY USED FOR STYLE JOBS PAGE */
 button {
   cursor: pointer;
   font-size: 1.2rem; 
@@ -98,6 +100,21 @@ label {
   justify-content: space-between;
 }
 
+#page-navigator {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* show job detail styling */
+#tracker-span {
+  display: flex;
+  justify-content: space-between;
+}
+
+ 
+
+
+/* FOOTER CODE */
 footer {
   width: 100%;
   display: flex;
@@ -108,23 +125,17 @@ footer {
   background-color: darkred;
 }
 
-footer > p {
-  margin: 0 auto;
-  padding: 0.3em;
-}
- 
 a:hover {
   text-decoration: none;
   font-style: italic;
   color: white;
 }
 
-#page-navigator {
-  display: flex;
-  justify-content: space-around;
+footer > p {
+  margin: 0 auto;
+  padding: 0.3em;
 }
-
-/* nav bar code below */
+/* RESPONSIVE NAV BAR CODE BELOW */
 .navbar {
   display: flex;
   position: relative;
@@ -188,9 +199,8 @@ a {
   color: white;
 }
 
-/* footer code */
-
-
+/* RESPONSIVE NAV BAR CODE BELOW */
+/* RESPONSIVE NAV BAR CODE BELOW */
 @media (max-width: 800px) {
   .navbar {
       flex-direction: column;
@@ -223,12 +233,5 @@ a {
       display: flex;
   }
 }
-
-#page-container {
-  position: relative;
-  min-height: 100vh;
-}
-
-#content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
-}
+/* END OF RESPONSIVE NAV BAR CODE */
+/* END OF RESPONSIVE NAV BAR CODE */

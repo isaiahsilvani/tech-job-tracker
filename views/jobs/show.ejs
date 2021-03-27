@@ -1,2 +1,25 @@
-JOB INDEX PAGE
-<%= job.title %> 
+<%- include('../partials/header') %> 
+
+<main>
+    <div id='job-result-card' class="card" style="width: 100%;">
+        <div class="card-body">
+        <span id='inline-card-header'>
+            <h4 class="card-title"><%= job.title %></h5>
+            <h5 class="card-subtitle" style='text-align: right'><%= job.created_at %></h6>
+        </span>
+        <span id='tracker-span'>
+            <h5 class="card-subtitle mb-2"><%= job.company %></h6>
+            <a href="#"><button type="button" class="btn btn-success">Track Job</button></a>
+        </span>
+        <h5 class="card-subtitle mb-2"><%= job.location %></h6><br>
+        <h5 class="card-subtitle mb-2">Company URL: <%= job.company_url %> </h6>
+        <h5 class="card-subtitle mb-2">How to Apply: <%= job.how_to_apply %> </h6>
+        <h5 class="card-subtitle mb-2">Description: </h6>
+        <p id='job-description' class="card-text"><%= job.description%> </p>
+        <a href="/jobs/<%= job.id %> "><button type="button" class="btn btn-info">Show Detail</button></a>
+        </div>
+    </div>
+</main>
+
+
+<%- include('../partials/footer') %> 
