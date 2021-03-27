@@ -13,11 +13,10 @@
                 <a href="#"><button type="button" class="btn btn-success">Track Job</button></a>
             </span>
             <h5 class="card-subtitle mb-2"><%= job.location %></h6><br>
-            <h5 class="card-subtitle mb-2">Company URL: <%= job.company_url %> </h6>
+            <h5 class="card-subtitle mb-2">Company URL: <a href='<%= job.company_url %>' style='color: black' target='_blank'><%= job.company_url %></a></h6>
             <h5 class="card-subtitle mb-2">How to Apply: <%= job.how_to_apply %> </h6>
-            <h5 class="card-subtitle mb-2">Description: </h6>
+            <h5 class="card-subtitle mb-2" style='margin-top: 0.4em'>Description: </h6>
             <p id='job-description' class="card-text"><%= job.description%> </p>
-            <a href="/jobs/<%= job.id %> "><button type="button" class="btn btn-info">Show Detail</button></a>
         </div>
     </div>
 </main>
