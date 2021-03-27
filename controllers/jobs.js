@@ -4,8 +4,15 @@ const { htmlToText } = require('html-to-text')
 
 function index(req, res) {
     console.log('index router hit')
-    let results = []
-    res.render('jobs/index', { title: 'Find Jobs', user: req.user, results})
+    let apiQuery = null
+    let results = null
+    res.render('jobs/index', { 
+        title: 'Find Jobs', 
+        user: req.user,
+        page: 0,
+        apiQuery,
+        results
+    })
 }
 
 //get the results, spit them back on the index page
@@ -18,15 +25,15 @@ function search(req, res) {
     axios.get(apiQuery)
     .then((response) => {
         for (let todo of response.data) {
-            console.log(todo)
             todo.description = htmlToText(todo.description, {wordwrap: 130})
-            console.log(todo)
             results.push(todo)
         }
         res.render('jobs/index', {
             title: 'Search Jobs',
             user: req.user,
-            results
+            results,
+            apiQuery,
+            page: 1
         })
     })
     console.log(results)
@@ -38,7 +45,21 @@ function search(req, res) {
 
 module.exports = {
     index,
-    search
+    search,
+    show
+}
+
+function show(req, res) {
+    let apiUrl = "https://jobs.github.com/positions/" + req.params.id + '.json'
+    console.log(apiUrl)
+    axios
+    .get(apiUrl).then((response) => {
+        res.render('jobs/show', {
+            title: 'Game Details',
+            user: req.user,
+            job: response.data
+        })
+    })
 }
 
 // HELPER FUNCTIONS FOR READABILITY
@@ -62,8 +83,8 @@ function getQueryString(req) {
     endPoint = endPoint.join('&')
     //if endPoint is empty and therefore false, return search node query of API. Else, return api + endpoint
     if (!endPoint) {
-        return apiUrl + 'search=node'
+        return apiUrl + 'search=node' + '&page=1'
     } else {
-        return apiUrl + endPoint
+        return apiUrl + endPoint + '&page=1'
     }
 }

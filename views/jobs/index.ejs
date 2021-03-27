@@ -1,18 +1,25 @@
 <%- include('../partials/header') %>
 
 <main>
-  <h1><%= user ? user.name : "Friend" %>, it's time to find your dream job</h1>
+  <h1><span id='name'><%= user ? user.name.split(' ')[0] : "Friend" %></span>, it's time to find your dream job</h1>
+  <% if (results === null) { %>
+    <h5 id='job-index-subtitle'>Take control of your future</h5>
+  <% } else if (results.length > 0) { %> 
+    <h5 id='job-index-subtitle'>Now hunt!</h5>
+    <% } else {  %> 
+      <h5 id='job-index-subtitle'>No results found</h5>
+    <% } %> 
   <div id='searchbar'>
     <form action="/jobs/search" method='POST'>
       <div id='jobs-text-inputs'>
-        <label for="keyword">keyword</label>
-        <input type="text" name='keyword'>
-        <label for="location">location</label>
-        <input type="text" name='location'>
+        <label for="keyword">Keywords</label>
+        <input type="text" name='keyword' placeholder="Javascript, Python, Web Dev, etc...">
+        <label for="location">Location</label>
+        <input type="text" name='location' placeholder='City, State, Remote, etc...'>
       </div id='jobs-text-inputs'>
       <div id='jobs-checkbox-inputs'>
         <label for="fulltime">Full Time</label>
-        <input type="checkbox" name='fullTime'>
+        <input type="checkbox" name='fullTime' id='chbx'>
       </div>
       <div id='btn-search-row'>
       <button class='btn btn-primary btn-sm' id='job-search-btn' type='submit'>SUBMIT</button>
@@ -20,12 +27,14 @@
     </form>
 </div>
 
-<%= results.length %> 
+<%= results === null ? "" : results.length %> 
+<%= apiQuery %> 
 
-<% if (results.length > 0) { %> 
+<% if (results === null) { %> 
+<% } else if (results.length > 0) { %> 
   <% //create a bootstrap card for every job %> 
   <% results.forEach(r => { %> 
-  <div class="card" style="width: 100%">
+  <div id='job-result-card' class="card" style="width: 100%">
     <div class="card-body">
       <span id='inline-card-header'>
         <h5 class="card-title"><%= r.title %></h5>
@@ -34,13 +43,41 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= r.company %></h6>
       <h6 class="card-subtitle mb-2 text-muted"><%= r.location %></h6>
       <p class="card-text"><%= r.description.slice(0, 230) + '...'%> </p>
-      <a href="#"><button type="button" class="btn btn-warning">Show Detail</button></a>
+      <a href="/jobs/<%= r.id %> "><button type="button" class="btn btn-info">Show Detail</button></a>
+      <a href="#"><button type="button" class="btn btn-success">Track Job</button></a>
     </div>
   </div>
   <% }) %> 
-<% } %> 
+<% } %>
 
   </div>
 </div>
+
+<% // if results === 50, add 1 to body.page, display next button and use apiUrl to render next page. %> 
+<% // if results is less than 50, and page > 1, , add 1 to body.page, display next button and use apiUrl to render next page. %> 
+
+<% // below it %> 
+<% if (results === null) { %> 
+<% } else { %>
+  <div id='page-navigator'>
+    <% //strip apiQuery page # for page navigator %> 
+    <% for (let i = 0; i < apiQuery.length; i++) { %> 
+      <% let char = apiQuery[i] %> 
+      <% if (!isNaN(char)) { %> 
+        <% let idx = i %> 
+        <% apiQuery = apiQuery.slice(0, idx) %>
+        <%= apiQuery %> 
+      <% } %> 
+    <% } %> 
+    <% // if results === 50, display next button %> 
+    <a href="<%= page > 1 ? 'prev' : '#' %> ">Prev</a>
+    <span id='page-num'><%= page >= 1 ? page : " " %></span>
+    <% //take current page number, add +1 at the end of it's endpoint %> 
+    <form action="/next" method='POST'>
+      <input hidden type="text">
+      <button type='submit'>Next</button>
+    </form>
+  </div>
+<% } %>
 
 </main><%- include('../partials/footer') %>

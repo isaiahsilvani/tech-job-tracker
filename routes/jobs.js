@@ -4,6 +4,7 @@ console.log('hit')
 
 
 router.get("/", jobsCtrl.index);
+router.get('/:id', jobsCtrl.show)
 router.post('/search', jobsCtrl.search)
 
 module.exports = router;
