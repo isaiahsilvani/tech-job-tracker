@@ -3,7 +3,17 @@ const User = require('../models/user')
 module.exports = {
     index,
     addToTracker,
-    removeFromTracker
+    removeFromTracker,
+    removeTrackerFromPage
+}
+
+function removeTrackerFromPage(req, res) {
+    let idx = req.user.jobsList.findIndex((j) => j.id === req.params.id)
+    req.user.jobsList.splice(idx, 1)
+    req.user.save()
+    .then(() => {
+        res.redirect(`/tracker`)
+    })
 }
 
 function index(req, res) {

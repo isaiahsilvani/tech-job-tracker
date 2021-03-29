@@ -24,7 +24,7 @@
                         <input type="text" hidden name="company" value="<%= job.company %>">
                         <input type="text" hidden name="status" value="Interested">
                         <button type='submit' class="btn btn-<%= user.jobsList.some(j => {return j.id === job.id}) ? "warning" : "success" %>">
-                              <%= user.jobsList.some(j => {return j.id === job.id}) ? "Untrack" : "Track" %>
+                              <%= user.jobsList.some(j => {return j.id === job.id}) ? "Untrack Job" : "Track Job" %>
                           </button>
                       </form>
             </span>

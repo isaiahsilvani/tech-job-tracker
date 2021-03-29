@@ -17,7 +17,11 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= j.company %></h6>
       <h6 class="card-subtitle mb-2 text-muted"><%= j.location %></h6>
       <a href="/jobs/<%= j.id %> "><button type="button" class="btn btn-info">Show Detail</button></a>
-      <a href="#"><button type="button" class="btn btn-success">Track Job</button></a>
+      <% //if user clicks the Untrack button, delete job from tracker in databsase %> 
+      <form action="/tracker/<%= j.id %>/page?_method=DELETE" method="POST" style='display: inline'>
+        <input type="text" hidden name="id" value="<%= j.id %>">
+        <button type="submit" class="btn btn-warning">Untrack Job</button>
+      </form>
     </div>
   </div>
   <% }) %> 

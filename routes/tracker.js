@@ -4,6 +4,7 @@ const trackerCtrl = require('../controllers/tracker')
 router.get("/", isLoggedIn, trackerCtrl.index);
 
 router.post("/:id", isLoggedIn, trackerCtrl.addToTracker);
+router.delete("/:id/page", isLoggedIn, trackerCtrl.removeTrackerFromPage)
 router.delete("/:id", isLoggedIn, trackerCtrl.removeFromTracker);
 
 
