@@ -53,6 +53,7 @@ function show(req, res) {
     .get(apiUrl).then((response) => {
         response.data.description = htmlToText(response.data.description, {wordwrap: 130})
         response.data.how_to_apply = htmlToText(response.data.how_to_apply, {wordwrap: 130})
+        console.log(response.data)
         res.render('jobs/show', {
             title: 'Game Details',
             user: req.user,

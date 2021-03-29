@@ -11,7 +11,6 @@
             <span id='tracker-span'>
                 <h5 class="card-subtitle mb-2"><%= job.company %></h6>
                     <% // if user has this job in their job list, display untrack. Else, display track %> 
-                    <%= console.log(user.avatar) %> 
                     
                     <% if (user.jobsList.some(j => {return j.id === job.id})) { %>
                         <form action="/tracker/<%= job.id %>?_method=DELETE" method="POST">

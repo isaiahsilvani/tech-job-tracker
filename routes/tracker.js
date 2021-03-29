@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const trackerCtrl = require('../controllers/tracker')
 
-router.get("/", trackerCtrl.index);
+router.get("/", isLoggedIn, trackerCtrl.index);
 
 router.post("/:id", isLoggedIn, trackerCtrl.addToTracker);
 router.delete("/:id", isLoggedIn, trackerCtrl.removeFromTracker);
