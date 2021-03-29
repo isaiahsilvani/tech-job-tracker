@@ -3,19 +3,36 @@
 <main>
     <div id='job-result-card' class="card" style="width: 100%;">
         <div class="card-body">
-            <a href="/jobs"><h6 class='card-subtitle' style='color: black'>Go back</h6></a>
+            <h6 class='card-subtitle'><a href="/jobs" style='color: black'>Go back</a></h6>
             <span id='inline-card-header'>
                 <h4 class="card-title"><%= job.title %></h5>
                 <h5 class="card-subtitle" style='text-align: right'><%= job.created_at %></h6>
             </span>
             <span id='tracker-span'>
                 <h5 class="card-subtitle mb-2"><%= job.company %></h6>
-                <a href="#"><button type="button" class="btn btn-success">Track Job</button></a>
+                    <% // if user has this job in their job list, display untrack. Else, display track %> 
+                    <%= console.log(user.avatar) %> 
+                    
+                    <% if (user.jobsList.some(j => {return j.id === job.id})) { %>
+                        <form action="/tracker/<%= job.id %>?_method=DELETE" method="POST">
+                      <% } else { %>
+                        <form action="/tracker/<%= job.id %>" method="POST">
+                      <% } %>
+                        <input type="text" hidden name="title" value="<%= job.title %>">
+                        <input type="text" hidden name="id" value="<%= job.id %>">
+                        <input type="date" hidden name="created_at" value="<%= job.created_at %>">
+                        <input type="text" hidden name="location" value="<%= job.location %>">
+                        <input type="text" hidden name="company" value="<%= job.company %>">
+                        <input type="text" hidden name="status" value="Interested">
+                        <button type='submit' class="btn btn-<%= user.jobsList.some(j => {return j.id === job.id}) ? "warning" : "success" %>">
+                              <%= user.jobsList.some(j => {return j.id === job.id}) ? "Untrack" : "Track" %>
+                          </button>
+                      </form>
             </span>
             <h5 class="card-subtitle mb-2"><%= job.location %></h6><br>
-            <h5 class="card-subtitle mb-2">Company URL: <a href='<%= job.company_url %>' style='color: black' target='_blank'><%= job.company_url %></a></h6>
-            <h5 class="card-subtitle mb-2">How to Apply: <%= job.how_to_apply %> </h6>
-            <h5 class="card-subtitle mb-2" style='margin-top: 0.4em'>Description: </h6>
+            <h5 class="card-subtitle mb-2">Company URL: <a href='<%= job.company_url %>' style='color: black' target='_blank'><%= job.company_url %></a></h5>
+            <h5 class="card-subtitle mb-2">How to Apply: <%= job.how_to_apply %> </h5>
+            <h5 class="card-subtitle mb-2" style='margin-top: 0.4em'>Description: </h5>
             <p id='job-description' class="card-text"><%= job.description%> </p>
         </div>
     </div>

@@ -1,9 +1,8 @@
-const Job = require('../models/job')
+const User = require('../models/user')
 const axios = require('axios')
 const { htmlToText } = require('html-to-text')
 
 function index(req, res) {
-    console.log('index router hit')
     let apiQuery = null
     let results = null
     res.render('jobs/index', { 
@@ -20,7 +19,6 @@ function index(req, res) {
 function search(req, res) {
     const apiQuery = String(getQueryString(req))
     const results = []
-    console.log(apiQuery)
     //console.log(apiQuery)
     axios.get(apiQuery)
     .then((response) => {
@@ -36,7 +34,6 @@ function search(req, res) {
             page: 1
         })
     })
-    console.log(results)
     }
 // 
 
@@ -51,7 +48,7 @@ module.exports = {
 
 function show(req, res) {
     let apiUrl = "https://jobs.github.com/positions/" + req.params.id + '.json'
-    console.log(apiUrl)
+    console.log(req.user)
     axios
     .get(apiUrl).then((response) => {
         response.data.description = htmlToText(response.data.description, {wordwrap: 130})
@@ -67,7 +64,6 @@ function show(req, res) {
 // HELPER FUNCTIONS FOR READABILITY
 
 function getQueryString(req) {
-    console.log(req.body)
     let apiUrl = ["https://jobs.github.com/positions.json?"]
     let endPoint = []
     const description = String(req.body.keyword).replace(' ', '+')

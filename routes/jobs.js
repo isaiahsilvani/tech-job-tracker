@@ -4,7 +4,12 @@ console.log('hit')
 
 
 router.get("/", jobsCtrl.index);
-router.get('/:id', jobsCtrl.show)
+router.get('/:id', isLoggedIn, jobsCtrl.show)
 router.post('/search', jobsCtrl.search)
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect("/auth/google");
+  }
 
 module.exports = router;
