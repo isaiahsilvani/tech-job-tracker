@@ -23,4 +23,10 @@ function addToTracker(req, res) {
 
 function removeFromTracker(req, res) {
     console.log('remove from tracker function hit')
+    let idx = req.user.jobsList.findIndex((j) => j.id === req.params.id)
+    req.user.jobsList.splice(idx, 1)
+    req.user.save()
+    .then(() => {
+        res.redirect(`/jobs/${req.params.id}`)
+    })
 }
