@@ -8,18 +8,41 @@
   <% //create a bootstrap card for every job %> 
   <% console.log(user.jobsList) %> 
   <% user.jobsList.forEach(j => { %> 
-  <div id='job-result-card' class="card" style="width: 100%">
+  <div id='job-result-card' class="card" style="width: 100%; min-width: 280px">
     <div class="card-body">
       <span id='inline-card-header'>
         <h5 class="card-title"><%= j.title %></h5>
         <h6 class="card-subtitle text-muted" style='text-align: right'><%= j.createdAt %></h6>
       </span>
-      <h6 class="card-subtitle mb-2 text-muted"><%= j.company %></h6>
-      <h6 class="card-subtitle mb-2 text-muted"><%= j.location %></h6>
-      <a href="/jobs/<%= j.id %> "><button type="button" class="btn btn-info">Show Detail</button></a>
+      <span id='inline-card-header'>
+        <h6 class="card-subtitle mb-2 text-muted"><%= j.company %></h6>
+        <h5>Status: <%= j.status %></h5>
+      </span>
+      <span id='inline-card-header'>
+        <h6 class="card-subtitle mb-2 text-muted"><%= j.location %></h6>
+        <form action="/tracker/<%= j._id %>?_method=PUT" method="POST" style='display: inline'>
+          <div class="select">
+            <select name="status" id="status-select">
+              <option selected disabled>Update Here</option>
+              <option value="Interested">Interested</option>
+              <option value="Applied">Applied</option>
+              <option value="Awaiting Response">Awaiting Response</option>
+              <option value="Interviewing">Interviewing</option>
+              <option value="Awaiting Job Offer">Awaiting Job Offer</option>
+              <option value="Accepted Job Offer">Accepted Job Offer</option>
+              <option value="Declined Job Offer">Declined Job Offer</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+            <input type="text" hidden name='_id' value='<%= j._id %> '>
+            <button type='submit' id='update-status-btn'>Update Status</button>
+          </div>
+        </form>
+      </span>
+      
+      <a href="/jobs/<%= j._id %> "><button type="button" class="btn btn-info">Show Detail</button></a>
       <% //if user clicks the Untrack button, delete job from tracker in databsase %> 
-      <form action="/tracker/<%= j.id %>/page?_method=DELETE" method="POST" style='display: inline'>
-        <input type="text" hidden name="id" value="<%= j.id %>">
+      <form action="/tracker/<%= j._id %>/page?_method=DELETE" method="POST" style='display: inline'>
+        <input type="text" hidden name="id" value="<%= j._id %>">
         <button type="submit" class="btn btn-warning">Untrack Job</button>
       </form>
     </div>

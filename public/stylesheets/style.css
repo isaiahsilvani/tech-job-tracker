@@ -55,6 +55,15 @@ h1 {
   margin: 0
 }
 
+#update-status-btn {
+  font-size: 0.9em;
+  width: 11em;
+  padding: 0.3em;
+  margin-top: 0.2em;
+  margin-bottom: 0.65em;
+  display: block;
+}
+
 label {
   margin: 0.4em;
   font-size: 1.2em;
@@ -111,8 +120,9 @@ label {
   justify-content: space-between;
 }
 
- 
-
+select {
+  width: 10.4em;
+}
 
 /* FOOTER CODE */
 footer {

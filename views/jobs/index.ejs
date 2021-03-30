@@ -42,9 +42,9 @@
       </span>
       <h6 class="card-subtitle mb-2 text-muted"><%= r.company %></h6>
       <h6 class="card-subtitle mb-2 text-muted"><%= r.location %></h6>
+      <h6 class="card-subtitle mb-2 text-muted">Description: </h6>
       <p class="card-text"><%= r.description.slice(0, 230) + '...'%> </p>
       <a href="/jobs/<%= r.id %> "><button type="button" class="btn btn-info">Show Detail</button></a>
-      <a href="#"><button type="button" class="btn btn-success">Track Job</button></a>
     </div>
   </div>
   <% }) %> 
