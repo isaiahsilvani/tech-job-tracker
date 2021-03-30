@@ -2,6 +2,7 @@ const router = require('express').Router();
 const chatsCtrl = require('../controllers/chats');
 
 router.get("/", isLoggedIn, chatsCtrl.chatRoom);
+router.get("/getName", isLoggedIn, chatsCtrl.getName)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

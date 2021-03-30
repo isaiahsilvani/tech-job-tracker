@@ -1,9 +1,19 @@
 <%- include('partials/header') %>
 
 <h3>Live Chat Room</h3>
-<p>Tech Hunters in the room:</p>
+<p>Job Hunters in the room: </p>
+<% // Notice the <ul> here that we'll be appending chatroom users to! %>
+<ul id="hunters"></ul>
+<input type="text" id="avatar" hidden name="avatar" value="<%= user.avatar %>">
+<input type="text" hidden name="username" value="<%= user.name %>" id="username">
+<input type="text" id="message">
+<a class="btn btn-info" href="#" id="send_message">Send Message</a>
+<% // Oh, this is gonna be COOL!  We're gonna display when someone is typing! %>
+<p id="isTyping"></p>
+<div id="chatroom"></div>
+<% // This is where we'll loop over the chats with a forEach %>
 
-<h3>HUNTER PAGE YEAH!</h3>
-
+<% // We need to bring in a JavaScript file for this!!! %>
 <script src="/javascripts/chat.js"></script>
+<%- include('partials/footer') %>
 <%- include('partials/footer') %>

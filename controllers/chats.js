@@ -1,7 +1,8 @@
 const Chat = require('../models/chat')
 
 module.exports = {
-    chatRoom
+    chatRoom,
+    getName
 }
 
 function chatRoom(req, res) {
@@ -9,4 +10,8 @@ function chatRoom(req, res) {
         title: "Chat Room",
         user: req.user
     })
+}
+
+function getName(req, res) {
+    
 }
