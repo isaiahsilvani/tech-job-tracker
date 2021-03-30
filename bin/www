@@ -6,6 +6,7 @@
 
 const app = require("../server");
 const debug = require("debug")("men_template:server");
+const io = require('../io')
 
 /**
  * Get port from environment and store in Express.
@@ -39,9 +40,12 @@ app.set("port", port);
   };
 
   server = https.createServer(options, app)
+  // attach socket.it to the https server
+  io.attach(server)
 } else {
   const http = require('http')
   server = http.createServer(app);
+  io.attach(server)
 }
 
 /**
