@@ -1,7 +1,6 @@
 const io = require('socket.io')()
 
-// defining an empty object to hold a list of 'chatters'
-let chatters = {}
+let hunters = {}
 
 
 io.on('connection', (socket) => {
