@@ -26,6 +26,7 @@ const jobsRouter = require('./routes/jobs')
 const trackerRouter = require('./routes/tracker')
 const messagesRouter = require('./routes/messages')
 const contactRouter = require('./routes/contact')
+const chatsRouter = require('./routes/chats')
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
