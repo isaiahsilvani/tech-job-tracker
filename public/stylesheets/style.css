@@ -145,6 +145,17 @@ footer > p {
   margin: 0 auto;
   padding: 0.3em;
 }
+/* REPLY SHOW VIEW*/
+#reply-body {
+  background-color: white;
+  border-radius: 10px;
+}
+
+#reply-message-text {
+  margin: 1em;
+  padding: 0.5em;
+}
+
 /* RESPONSIVE NAV BAR CODE BELOW */
 .navbar {
   display: flex;
@@ -157,7 +168,6 @@ footer > p {
 
 .brand-title {
   font-size: 1.5rem;
-  margin: .5rem;
 }
 
 .navbar-links {

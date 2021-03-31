@@ -1,19 +1,23 @@
 <%- include('../partials/header') %>
 <main>
-    <h3>Message Details</h3>
-    <h4><%= message.title %></h4>
-    <h5>
-        Posted on <%= message.createdAt.toLocaleString() %> - <%= message.postedBy %>
-        <img id="avatar" width="30" src="<%= message.avatar %>" alt="">
-    </h5>
+    <div id="reply-body">
+        <div id='reply-message-text'>
+        <h3>Message Details</h3>
+        <h4><%= message.title %></h4>
+        <h5>
+            Posted on <%= message.createdAt.toLocaleString() %> - <%= message.postedBy %>
+            <img id="avatar" width="30" src="<%= message.avatar %>" alt="">
+        </h5>
 
-    <% message.replies.forEach(reply => { %>
-    <h6>
-            <%= reply.message %> - <%= reply.postedBy %> - 
-            <%= reply.createdAt.toLocaleString() %> 
-            <img id="avatar" width="25" src="<%= reply.avatar %>" alt="">q
-        </h6>
-    <% }) %>
+        <% message.replies.forEach(reply => { %>
+        <h6>
+            <img id="avatar" width="25" src="<%= reply.avatar %>" alt=""> - <%= reply.postedBy %> - <%= reply.message %>
+                <span id='reply-date'><%= reply.createdAt.toLocaleString() %></span>
+                
+            </h6>
+        <% }) %>
+        </div>
+    </div>
 
     <form action="/messages/<%= message._id %>" method="POST">
     <div class="form-group">

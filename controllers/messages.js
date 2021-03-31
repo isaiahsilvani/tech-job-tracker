@@ -3,7 +3,21 @@ const Message = require('../models/message')
 module.exports = {
     index,
     create,
-    show
+    show,
+    reply
+}
+
+function reply(req, res) {
+    Message.findById(req.params.id)
+      .then((message) => {
+      req.body.postedBy = req.user.name;
+      req.body.avatar = req.user.avatar;
+      message.replies.push(req.body);
+      message.save()
+          .then(() => {
+        res.redirect(`/messages/${req.params.id}`);
+      });
+    });
 }
 
 function show(req, res) {
