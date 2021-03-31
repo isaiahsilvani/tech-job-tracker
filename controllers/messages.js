@@ -2,8 +2,20 @@ const Message = require('../models/message')
 
 module.exports = {
     index,
-    create
+    create,
+    show
 }
+
+function show(req, res) {
+    Message.findById(req.params.id)
+      .then((message) => {
+      res.render("messages/show", {
+        title: "Message Details",
+        user: req.user,
+        message,
+      });
+    });
+  }
 
 function create(req, res) {
     req.body.postedBy = req.user.name;

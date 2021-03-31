@@ -2,6 +2,7 @@ const router = require("express").Router();
 const messagesCtrl = require('../controllers/messages')
 
 router.get('/', isLoggedIn, messagesCtrl.index);
+router.get("/:id", isLoggedIn, messagesCtrl.show);
 router.post("/", isLoggedIn, messagesCtrl.create);
 
 function isLoggedIn(req, res, next) {
