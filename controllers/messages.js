@@ -5,6 +5,12 @@ module.exports = {
 }
 
 function index(req, res) {
-    console.log('messages index router hit')
-    res.render('messages/index', { title: 'Message Board', user: req.user, results: null})
-}
+    Message.find({})
+      .then((messages) => {
+      res.render("messages/index", {
+        title: "Message Board",
+        user: req.user,
+        messages: messages.reverse(),
+      });
+    });
+  }
