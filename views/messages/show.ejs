@@ -5,8 +5,10 @@
         <h3>Message Details</h3>
         <h4><%= message.title %></h4>
         <h5>
-            Posted on <%= message.createdAt.toLocaleString() %> - <%= message.postedBy %>
+            Posted on <%= message.createdAt.toLocaleString() %> - 
             <img id="avatar" width="30" src="<%= message.avatar %>" alt="">
+            <%= message.postedBy %>
+            
         </h5>
 
         <% message.replies.forEach(reply => { %>
