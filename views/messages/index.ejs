@@ -15,10 +15,10 @@
   </form>
 
   <% messages.forEach(message => { %>
-    <div class="card" style='margin: 1em'>
+    <div class="card" style='margin-top: 1em'>
       <div class="card-header" >
-        <%= message.postedBy %> 
         <img id="avatar" width="30" src="<%= message.avatar %>" alt="">
+        <%= message.postedBy %>
       </div>
       <div class="card-body">
         <h5 class="card-title"><%= message.title %></h5>
