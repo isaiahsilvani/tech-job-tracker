@@ -7,6 +7,7 @@ router.get("/", jobsCtrl.index);
 router.get('/:id', isLoggedIn, jobsCtrl.show)
 router.post('/search', jobsCtrl.search)
 router.post('/next', jobsCtrl.next)
+router.post('/prev', jobsCtrl.prev)
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();

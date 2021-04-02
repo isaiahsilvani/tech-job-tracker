@@ -28,7 +28,6 @@
 </div>
 
 <%= results === null ? "" : results.length %> 
-<%= apiQuery %> 
 
 <% if (results === null) { %> 
 <% } else if (results.length > 0) { %> 
@@ -66,17 +65,20 @@
       <% if (!isNaN(char)) { %> 
         <% let idx = i %> 
         <% apiQuery = apiQuery.slice(0, idx) %>
-        <%= apiQuery %> 
       <% } %> 
     <% } %> 
     <% // if results === 50, display next button %> 
-    <a href="<%= page > 1 ? 'prev' : '#' %> ">Prev</a>
+    <form action="/jobs/prev" method='POST'>
+      <input hidden type="text" value='<%= apiQuery %>' name="apiQuery">
+      <input hidden type="text" value='<%= page %>' name="page">
+      <input type='submit' value='Prev'>
+    </form>
     <span id='page-num'><%= page >= 1 ? page : " " %></span>
     <% //take current page number, add +1 at the end of it's endpoint %> 
     <form action="/jobs/next" method='POST'>
       <input hidden type="text" value='<%= apiQuery %>' name="apiQuery">
       <input hidden type="text" value='<%= page %>' name="page">
-      <button type='submit'>Next</button>
+      <input type='submit' value='Next'>
     </form>
   </div>
 <% } %>

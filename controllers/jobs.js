@@ -44,7 +44,28 @@ module.exports = {
     index,
     search,
     show,
-    next
+    next,
+    prev
+}
+
+function prev(req, res) {
+    let page = Number(req.body.page) - 1
+    let apiQuery = req.body.apiQuery + "" + page
+    let results = []
+    axios.get(apiQuery)
+    .then((response) => {
+        for (let result of response.data) {
+            result.description = htmlToText(result.description, {wordwrap: 130})
+            results.push(result)
+        }
+        res.render('jobs/index', {
+            title: 'Search Jobs',
+            user: req.user,
+            results,
+            apiQuery,
+            page
+        })
+    })
 }
 
 function next(req, res) {
