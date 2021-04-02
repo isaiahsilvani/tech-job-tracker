@@ -1,42 +1,15 @@
 <%- include('partials/header') %>
 
-<main>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <h1>hello, landing page (flex goal), <%= user ? user.name : "friend" %></h1>
-  <button></button>
+<main
+  <div id='contact-body'>
+    <h1>Welcome to Tech Hunters </h1><br><br>
+    <h3>Search for jobs on Github's Job API, and keep track of your progress with the Tech Hunter's Tracker</h3><br>
+  <% if (user) { %> 
+  <h4>If you have any questions or suggestions, please don't hesitate to contact me.</h4>
+    <% } else { %>
+      <h4>Please sign into Google to enjoy the full functionality of this app</h4>
+    <% } %>
+  
 </main>
 
 
