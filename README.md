@@ -16,9 +16,9 @@ In order to use the full functionality of this app, users must be signed into Go
  Jake just graduated from a Coding Bootcamp, and is now looking for his first tech job. Jake sends his resumes out on Linkedin, Indeed, and other job boards but is not getting any responses back. Jake then decides to try finding a job using Tech Hunters, which searches in a more obscure job board so there is less competition. Jake keeps track of his progress using the Tracker, from "Applied" all the way up to "Offer Accepted". When Jake lands his dream job using Tech Hunters, he goes to post about his success on the Message Board to encourage others to keep hunting!
 
 ## Application Screenshots
-![Application Screenshot 1](images/screenshots/screenshot1.png)
-![Application Screenshot 2](images/screenshots/screenshot2.png)
-![Application Screenshot 3](images/screenshots/screenshot3.png)
+![Application Screenshot 1](https://i.imgur.com/F7lvqgy.png)
+![Application Screenshot 2](https://i.imgur.com/8MegUfr.png)
+![Application Screenshot 3](https://i.imgur.com/z2G2xjQ.png)
 ## Technologies Used
 ExpressJS, MongoDB, NodeJS, CSS3, HTML5
 ## Accessiblity
