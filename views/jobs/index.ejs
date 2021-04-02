@@ -73,8 +73,9 @@
     <a href="<%= page > 1 ? 'prev' : '#' %> ">Prev</a>
     <span id='page-num'><%= page >= 1 ? page : " " %></span>
     <% //take current page number, add +1 at the end of it's endpoint %> 
-    <form action="/next" method='POST'>
-      <input hidden type="text">
+    <form action="/jobs/next" method='POST'>
+      <input hidden type="text" value='<%= apiQuery %>' name="apiQuery">
+      <input hidden type="text" value='<%= page %>' name="page">
       <button type='submit'>Next</button>
     </form>
   </div>

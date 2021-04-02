@@ -34,7 +34,7 @@ function search(req, res) {
             page: 1
         })
     })
-    }
+}
 // 
 
  
@@ -43,7 +43,31 @@ function search(req, res) {
 module.exports = {
     index,
     search,
-    show
+    show,
+    next
+}
+
+function next(req, res) {
+    console.log(req.body.apiQuery)
+    console.log(req.body.page)
+    // add 1 to page, attach to end of apiQuery, make an api call, render new data and page#
+    let page = Number(req.body.page) + 1
+    let apiQuery = req.body.apiQuery + "" + page
+    let results = []
+    axios.get(apiQuery)
+    .then((response) => {
+        for (let result of response.data) {
+            result.description = htmlToText(result.description, {wordwrap: 130})
+            results.push(result)
+        }
+        res.render('jobs/index', {
+            title: 'Search Jobs',
+            user: req.user,
+            results,
+            apiQuery,
+            page
+        })
+    })
 }
 
 function show(req, res) {
@@ -55,7 +79,7 @@ function show(req, res) {
         response.data.how_to_apply = htmlToText(response.data.how_to_apply, {wordwrap: 130})
         console.log(response.data)
         res.render('jobs/show', {
-            title: 'Game Details',
+            title: 'Job Details',
             user: req.user,
             job: response.data
         })
