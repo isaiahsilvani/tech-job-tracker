@@ -68,18 +68,26 @@
       <% } %> 
     <% } %> 
     <% // if results === 50, display next button %> 
+    <% if (page > 1) { %> 
     <form action="/jobs/prev" method='POST'>
       <input hidden type="text" value='<%= apiQuery %>' name="apiQuery">
       <input hidden type="text" value='<%= page %>' name="page">
       <input type='submit' value='Prev'>
     </form>
+    <% } else { %> 
+      <p>   </p>
+      <% } %> 
     <span id='page-num'><%= page >= 1 ? page : " " %></span>
-    <% //take current page number, add +1 at the end of it's endpoint %> 
+    <% //take current page number, add +1 at the end of it's endpoint %>
+    <% if (results.length === 50) { %>  
     <form action="/jobs/next" method='POST'>
       <input hidden type="text" value='<%= apiQuery %>' name="apiQuery">
       <input hidden type="text" value='<%= page %>' name="page">
       <input type='submit' value='Next'>
     </form>
+    <% } else { %> 
+      <p>   </p>
+    <% } %> 
   </div>
 <% } %>
 
