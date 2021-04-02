@@ -39,7 +39,7 @@
         </form>
       </span>
       
-      <a href="/jobs/<%= j._id %> "><button type="button" class="btn btn-info">Show Detail</button></a>
+      <a href="/jobs/<%= j.id %>"><button type="button" class="btn btn-info">Show Detail</button></a>
       <% //if user clicks the Untrack button, delete job from tracker in databsase %> 
       <form action="/tracker/<%= j._id %>/page?_method=DELETE" method="POST" style='display: inline'>
         <input type="text" hidden name="id" value="<%= j._id %>">
