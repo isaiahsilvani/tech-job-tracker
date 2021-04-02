@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <main>
-  <h1><span id='name'><%= user ? user.name.split(' ')[0] : "Friend" %></span>, it's time to find your dream job</h1>
+  <h3><span id='name'><%= user ? user.name.split(' ')[0] : "Friend" %></span>, it's time to find your dream job</h3>
   <% if (results === null) { %>
     <h5 id='job-index-subtitle'>Take control of your future</h5>
   <% } else if (results.length > 0) { %> 
@@ -73,7 +73,7 @@
       <input type='submit' value='Prev'>
     </form>
     <% } else { %> 
-      <p>   </p>
+      <p>...</p>
       <% } %> 
     <span id='page-num'><%= page >= 1 ? page : " " %></span>
     <% //take current page number, add +1 at the end of it's endpoint %>
@@ -84,7 +84,7 @@
       <input type='submit' value='Next'>
     </form>
     <% } else { %> 
-      <p>   </p>
+      <p>...</p>
     <% } %> 
   </div>
 <% } %>
