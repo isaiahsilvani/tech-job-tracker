@@ -1,6 +1,6 @@
 # TECH HUNTERS, A JOB HUNTING APP
 ### Thank you for checking out my application!
-## Search for tech jobs [now!](https://tech-hunters.herokuapp.com/)
+## Search for tech jobs [now!](https://www.techhunters.info/)
 ## Wireframe
 ![Tech Hunters Wireframe](https://i.imgur.com/Wss3fMZ.png)
 
